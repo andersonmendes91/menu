@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+
+        *{  
+            font-family: 'Oswald', sans-serif;
+            margin: 0;
+            padding: 0px;
+            box-sizing: border-box;
+            
+        }
+        
+        
+       .cabecalho{
+          
+           width: 100%;
+           background: #2E2E2E;
+           height: 80px;
+           border-bottom: 5px solid #58D3F7ff;
+       }
+       .menu-toggle {display: none;}
+
+        .logo img {
+            padding-left: 10px;
+            margin-top: 15px;
+            height: 50px;
+            align-content: center;
+        }
+       
+        .menu {
+            margin-top: -50px;
+            display: block;
+       }
+
+        .menu ul {margin-left: 300px;padding: 0;}
+
+      .menu ul li {
+          margin: 10px;
+          position: relative;
+          display: inline-block;
+         
+      }
+
+      .menu a {
+          color: #fff;
+          text-decoration: none;
+          padding: 15px;
+      }
+
+      .menu ul li a:hover,
+      .menu ul li a.selecionado
+      {  
+        color: #000;
+        background-color:#58D3F7ff; 
+       
+       
+      }
+
+      
+      
+
+      .autenticacao{
+          margin-top: -35px;
+          float: right;
+          margin-right: 10px;
+      }
+
+      .autenticacao a {
+          text-decoration: none;
+          color: #fff;
+
+      }
+
+      .botao {
+          background: #f50a31;
+          padding: 15px 25px;
+          border-radius:30px;
+          margin: 10px;
+      }
+
+
+
+
+
+
+
+      @media (max-width: 731px){
+        .autenticacao {
+              display: none;
+          }
+      }
+
+      @media (max-width: 661px){
+          .menu-toggle {
+              outline: none;
+              border-radius: 10px;
+              padding: 10px;
+              background: #2E2E2E;
+              color: #fff;
+              margin-top: -45px;
+              margin-right: 10px;
+              float: right;
+              display: block;
+          }
+          .menu {
+              display: none;
+          }
+
+          
+      }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+
+    <script>
+           
+       window.onhashchange  = function(e){
+           /* 
+            const oldURL = e.oldURL.split('#')[1]
+            const newURL = e.newURL.split('#')[1]
+           */
+            let urlVelha = e.oldURL.split('#')[1];
+            let urlNova = e.newURL.split('#')[1]; 
+          console.log(urlVelha, urlNova)
+            let linkVelho = document.querySelector(`.menu a[href='#${urlVelha}']`);
+            let linkNova = document.querySelector(`.menu a[href='#${urlNova}']`);
+
+           linkVelho && linkVelho.classList.remove('selecionado');
+           linkNova && linkNova.classList.add('selecionado');
+      
+       }
+
+    </script>
+</body>
+
+</html>
